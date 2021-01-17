@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCHAP", "src\MicroCHAP\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCHAP.Tests", "src\MicroCHAP.Tests\MicroCHAP.Tests.csproj", "{8EA458C0-436E-4455-9827-A262F51F5AE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCHAP.Core", "src\MicroCHAP.Core\MicroCHAP.Core.csproj", "{4B067E2F-3CE1-45E3-8A63-55CA57721348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCHAP.Core.Tests", "src\MicroCHAP.Core.Tests\MicroCHAP.Core.Tests.csproj", "{AABF5F40-75CF-4F4B-B9A0-F3F09E9E2DDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8EA458C0-436E-4455-9827-A262F51F5AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EA458C0-436E-4455-9827-A262F51F5AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EA458C0-436E-4455-9827-A262F51F5AE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B067E2F-3CE1-45E3-8A63-55CA57721348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B067E2F-3CE1-45E3-8A63-55CA57721348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B067E2F-3CE1-45E3-8A63-55CA57721348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B067E2F-3CE1-45E3-8A63-55CA57721348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AABF5F40-75CF-4F4B-B9A0-F3F09E9E2DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AABF5F40-75CF-4F4B-B9A0-F3F09E9E2DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AABF5F40-75CF-4F4B-B9A0-F3F09E9E2DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AABF5F40-75CF-4F4B-B9A0-F3F09E9E2DDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
