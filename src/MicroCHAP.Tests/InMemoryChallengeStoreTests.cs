@@ -2,6 +2,7 @@
 using FluentAssertions;
 using MicroCHAP.Server;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 
 namespace MicroCHAP.Tests
 {
@@ -52,7 +53,8 @@ namespace MicroCHAP.Tests
 
 		private IChallengeStore CreateTestStore()
 		{
-			return new InMemoryChallengeStore(null);
+			var logger = Substitute.For<IChallengeStoreLogger>();
+			return new InMemoryChallengeStore(logger);
 		}
 	}
 }

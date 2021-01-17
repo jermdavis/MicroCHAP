@@ -96,11 +96,12 @@ namespace MicroCHAP.Tests
 
 		private IChapServer CreateTestServer()
 		{
+			var logger = Substitute.For<IChallengeStoreLogger>();
 			var responseService = Substitute.For<ISignatureService>();
 			var signatureResult = new SignatureResult { SignatureHash = "RESPONSE" };
 			responseService.CreateSignature(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<IEnumerable<SignatureFactor>>()).Returns(signatureResult);
 
-			return new ChapServer(responseService, new InMemoryChallengeStore(null));
+			return new ChapServer(responseService, new InMemoryChallengeStore(logger));
 		}
 	}
 }
