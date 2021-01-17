@@ -1,12 +1,14 @@
 ﻿using System.Linq;
 using FluentAssertions;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MicroCHAP.Tests
 {
+
+	[TestClass]
 	public class SignatureServiceTests
 	{
-		[Fact]
+		[TestMethod]
 		public void ShouldReturnExpectedHash()
 		{
 			var service = new SignatureService("TEST");
@@ -17,7 +19,7 @@ namespace MicroCHAP.Tests
 			response.SignatureSource.Should().Be("CHALLENGE|TEST|URL.COM/FOO");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ShouldReturnExpectedHash_WithFactors()
 		{
 			var service = new SignatureService("TEST");
@@ -28,7 +30,7 @@ namespace MicroCHAP.Tests
 			response.SignatureSource.Should().Be("SecondTest^SecondValue|TestFactor^TestValue|CHALLENGE|TEST|URL.COM/FOO");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ShouldReturnEquivalentHashes_WhenFactorsAreInDifferentOrder()
 		{
 			var service = new SignatureService("TEST");

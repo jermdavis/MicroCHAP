@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using MicroCHAP.Server;
 using NSubstitute;
-using Xunit;
 
 namespace MicroCHAP.Tests
 {
+
+	[TestClass]
 	public class ChapServerTests
 	{
-		[Fact]
+		[TestMethod]
 		public void GetChallengeToken_ShouldReturnUniqueChallenges()
 		{
 			var service = CreateTestServer();
@@ -19,7 +21,7 @@ namespace MicroCHAP.Tests
 			challenge1.Should().NotBe(service.GetChallengeToken());
 		}
 
-		[Fact]
+		[TestMethod]
 		public void GetChallengeToken_ShouldBeAlphanumeric()
 		{
 			var service = CreateTestServer();
@@ -29,7 +31,7 @@ namespace MicroCHAP.Tests
 			challenge.Should().MatchRegex("^[A-Za-z0-9]+$");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ValidateToken_ShouldReturnFalseIfChallengeDoesNotExist()
 		{
 			var service = CreateTestServer();
@@ -41,7 +43,7 @@ namespace MicroCHAP.Tests
 			log.Received().RejectedDueToInvalidChallenge("FAKE", "FAKE");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ValidateToken_ShouldReturnFalseIfChallengeIsTooOld()
 		{
 			var service = CreateTestServer();
@@ -58,7 +60,7 @@ namespace MicroCHAP.Tests
 			log.Received().RejectedDueToInvalidChallenge(token, "FAKE");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ValidateToken_ShouldReturnTrue_IfTokenIsValid()
 		{
 			var service = CreateTestServer();
@@ -68,7 +70,7 @@ namespace MicroCHAP.Tests
 			service.ValidateToken(token, "RESPONSE", "FAKE").Should().BeTrue();
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ValidateToken_ShouldNotAllowReusingTokens()
 		{
 			var service = CreateTestServer();
@@ -79,7 +81,7 @@ namespace MicroCHAP.Tests
 			service.ValidateToken(token, "RESPONSE", "FAKE").Should().BeFalse();
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ValidateToken_ShouldRejectInvalidSignature()
 		{
 			var service = CreateTestServer();

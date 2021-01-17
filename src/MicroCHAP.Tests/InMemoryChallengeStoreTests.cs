@@ -1,13 +1,15 @@
 ﻿using System.Threading;
 using FluentAssertions;
 using MicroCHAP.Server;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MicroCHAP.Tests
 {
+
+	[TestClass]
 	public class InMemoryChallengeStoreTests
 	{
-		[Fact]
+		[TestMethod]
 		public void ConsumeChallenge_ShouldReturnFalseIfChallengeDoesNotExist()
 		{
 			var store = CreateTestStore();
@@ -15,7 +17,7 @@ namespace MicroCHAP.Tests
 			store.ConsumeChallenge("FAKE").Should().BeFalse();
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ConsumeChallenge_ShouldReturnFalseIfChallengeIsTooOld()
 		{
 			var store = CreateTestStore();
@@ -27,7 +29,7 @@ namespace MicroCHAP.Tests
 			store.ConsumeChallenge("FAKE").Should().BeFalse();
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ConsumeChallenge_ShouldReturnTrue_IfTokenIsValid()
 		{
 			var store = CreateTestStore();
@@ -37,7 +39,7 @@ namespace MicroCHAP.Tests
 			store.ConsumeChallenge("FAKE").Should().BeTrue();
 		}
 
-		[Fact]
+		[TestMethod]
 		public void ConsumeChallenge_ShouldNotAllowReusingTokens()
 		{
 			var store = CreateTestStore();
